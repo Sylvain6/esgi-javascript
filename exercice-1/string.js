@@ -1,6 +1,6 @@
 helloWorld = 'hello world';
 
-function ucFirst(string) {
+function ucfirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -16,14 +16,14 @@ function capitalize(string){
     let splitted = string.split(" ");
     newTab = [];
     splitted.map((currElement) => {
-        capitalizedWord = allMin(currElement);
+        capitalizedWord = ucfirst(currElement);
         newTab.push(capitalizedWord);
     });
     capitalizedString = newTab.join(" ");
     return capitalizedString;
 }
 
-function pascalCase(string){
+function pascalcase(string){
     if (string.length === 0) {
         console.log("Key is empty");
         return;
@@ -31,14 +31,14 @@ function pascalCase(string){
     let splitted = string.split(" ");
     newTab = [];
     splitted.map((currElement) => {
-        capitalizedWord = ucFirst(currElement);
+        capitalizedWord = ucfirst(currElement);
         newTab.push(capitalizedWord);
     });
     capitalizedString = newTab.join("");
     return capitalizedString;
 }
 
-function snakeCase(string){
+function snakecase(string){
     if (string.length === 0) {
         console.log("Key is empty");
         return;
@@ -89,10 +89,25 @@ function reverse(string){
  return string.split("").join("").split(" ").reverse().join(" ");
 }
 
-console.log(ucFirst(helloWorld)); // UCFIRST
+object = {
+    "animals":[
+        {
+            "type":{
+                "name": "dog"
+            }
+        },
+        {
+            "type":{
+                "name": "cat"
+            }
+        }
+    ]
+}
+
+console.log(ucfirst(helloWorld)); // UCFIRST
 console.log(capitalize(helloWorld)); // CAPITALIZE
-console.log(pascalCase(helloWorld)); // PASCALCASE
-console.log(snakeCase(helloWorld)); // SNAKECASE
+console.log(pascalcase(helloWorld)); // PASCALCASE
+console.log(snakecase(helloWorld)); // SNAKECASE
 console.log(leet(helloWorld)); // LEET
 console.log(verlan(helloWorld)); // VERLAN
 console.log(reverse(helloWorld)); // REVERSE
