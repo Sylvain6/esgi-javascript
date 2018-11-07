@@ -8,18 +8,48 @@ function allMin(string){
     return string.toLowerCase();
 }
 
-function capitalize(string, concatenate, upper){
-    if (string.length == 0) {
+function capitalize(string){
+    if (string.length === 0) {
         console.log("Key is empty");
         return;
     }
     let splitted = string.split(" ");
     newTab = [];
     splitted.map((currElement) => {
-        upper ? capitalizedWord = ucFirst(currElement) : capitalizedWord = allMin(currElement);
+        capitalizedWord = allMin(currElement);
         newTab.push(capitalizedWord);
     });
-    capitalizedString = newTab.join(concatenate);
+    capitalizedString = newTab.join(" ");
+    return capitalizedString;
+}
+
+function pascalCase(string){
+    if (string.length === 0) {
+        console.log("Key is empty");
+        return;
+    }
+    let splitted = string.split(" ");
+    newTab = [];
+    splitted.map((currElement) => {
+        capitalizedWord = ucFirst(currElement);
+        newTab.push(capitalizedWord);
+    });
+    capitalizedString = newTab.join("");
+    return capitalizedString;
+}
+
+function snakeCase(string){
+    if (string.length === 0) {
+        console.log("Key is empty");
+        return;
+    }
+    let splitted = string.split(" ");
+    newTab = [];
+    splitted.map((currElement) => {
+        capitalizedWord = allMin(currElement);
+        newTab.push(capitalizedWord);
+    });
+    capitalizedString = newTab.join("_");
     return capitalizedString;
 }
 
@@ -44,7 +74,7 @@ function leet(string)
 }
 
 function verlan(string){
-    if (string.length == 0) {
+    if (string.length === 0) {
         console.log("Key is empty");
         return;
     }
@@ -52,18 +82,17 @@ function verlan(string){
 }
 
 function reverse(string){
-    if (string.length == 0) {
+    if (string.length === 0) {
         console.log("Key is empty");
         return;
     }
  return string.split("").join("").split(" ").reverse().join(" ");
 }
 
-
 console.log(ucFirst(helloWorld)); // UCFIRST
-console.log(capitalize(helloWorld, " ", true)); // CAPITALIZE
-console.log(capitalize(helloWorld, "", true)); // PASCALCASE
-console.log(capitalize(helloWorld, "_", false)); // SNAKECASE
+console.log(capitalize(helloWorld)); // CAPITALIZE
+console.log(pascalCase(helloWorld)); // PASCALCASE
+console.log(snakeCase(helloWorld)); // SNAKECASE
 console.log(leet(helloWorld)); // LEET
 console.log(verlan(helloWorld)); // VERLAN
 console.log(reverse(helloWorld)); // REVERSE
