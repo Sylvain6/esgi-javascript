@@ -1,6 +1,10 @@
-helloWorld = 'hello world';
+helloWorld = "toggle case is the best";
 
 function ucfirst(string) {
+    if (typeof string !== "string") {
+        console.log("Key is empty");
+        return;
+    }
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -9,11 +13,12 @@ function allMin(string){
 }
 
 function capitalize(string){
-    if (string.length === 0) {
+    if (typeof string !== "string") {
         console.log("Key is empty");
         return;
     }
-    let splitted = string.split(" ");
+    minString = allMin(string);
+    let splitted = minString.split(" ");
     newTab = [];
     splitted.map((currElement) => {
         capitalizedWord = ucfirst(currElement);
@@ -24,7 +29,7 @@ function capitalize(string){
 }
 
 function pascalcase(string){
-    if (string.length === 0) {
+    if (typeof string !== "string") {
         console.log("Key is empty");
         return;
     }
@@ -39,7 +44,7 @@ function pascalcase(string){
 }
 
 function snakecase(string){
-    if (string.length === 0) {
+    if (typeof string !== "string") {
         console.log("Key is empty");
         return;
     }
@@ -55,7 +60,7 @@ function snakecase(string){
 
 function leet(string)
 {
-    if (string.length == 0) {
+    if (typeof string !== "string") {
         console.log("Key is empty");
         return;
     }
@@ -74,7 +79,7 @@ function leet(string)
 }
 
 function verlan(string){
-    if (string.length === 0) {
+    if (typeof string !== "string") {
         console.log("Key is empty");
         return;
     }
@@ -82,14 +87,14 @@ function verlan(string){
 }
 
 function reverse(string){
-    if (string.length === 0) {
+    if (typeof string !== "string") {
         console.log("Key is empty");
         return;
     }
  return string.split("").join("").split(" ").reverse().join(" ");
 }
 
-object = {
+test = {
     "animals":[
         {
             "type":{
@@ -102,6 +107,28 @@ object = {
             }
         }
     ]
+}
+
+const prop_access = (obj,key) => {
+    if (obj != null) {
+        if (key != null && key.length > 0) {
+            return key.split(".").reduce(function(o, x) {
+                if (typeof o == "undefined" || o === null) {
+                    return o;
+                } else {
+                    if (typeof o[x] == "undefined" || o[x] === null) {
+                        console.log(key+" not exist"); return;
+                    } else {
+                        return o[x];
+                    }
+                }
+            }, obj);
+        } else {
+            return obj;
+        }
+    } else {
+        return '';
+    }
 }
 
 console.log(ucfirst(helloWorld)); // UCFIRST
