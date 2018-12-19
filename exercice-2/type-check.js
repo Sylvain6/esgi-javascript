@@ -5,13 +5,15 @@ const type_check_v1 = (value, type) => {
     return true;
 };
 
-function type_check_v2(val,args) {
-    if(typeof val == "object"){
-        if(compareObj(val,args.value)){
-            return type_check_v1(val,args.type);
+const compareObject = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2)
+
+function type_check_v2(value, args) {
+    if(typeof value == "object"){
+        if(compareObject(value, args.value)){
+            return type_check_v1(value, args.type);
         }
-    }else if(val == args.value){
-        return type_check_v1(val,args.type);
+    }else if(value == args.value){
+        return type_check_v1(value, args.type);
     }
     return false;
 }
